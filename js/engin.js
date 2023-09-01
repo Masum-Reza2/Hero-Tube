@@ -3,6 +3,7 @@ let loadData = async () => {
     let res = await fetch('https://openapi.programming-hero.com/api/videos/categories');
     let data = await res.json();
 
+    //dynamic category buttons setter
     setCategories(data)
 
     // showing all categories by default
@@ -88,6 +89,7 @@ let categoryData = async (id) => {
 
     else {
 
+        // dynamic error message
         let div = document.createElement('div');
         div.classList = 'md:h-[70vh] mt-10 md:mt-0 flex flex-col items-center justify-start md:justify-center gap-y-3 md:gap-y-7';
         div.innerHTML = `
@@ -103,7 +105,7 @@ let categoryData = async (id) => {
 }
 
 
-// parent or control room switch
+//control room switch the grandpa
 loadData()
 
 
@@ -120,9 +122,6 @@ let sortVideosByViews = () => {
     cards.sort((a, b) => {
         let viewsA = parseFloat(a.querySelector('.views').textContent);
         let viewsB = parseFloat(b.querySelector('.views').textContent);
-        console.log(viewsA, a.querySelector('.views').textContent)
-        console.log(viewsB)
-
         return viewsB - viewsA;
     });
 
