@@ -4,7 +4,7 @@ let loadData = async () => {
     let data = await res.json();
 
     setCategories(data)
-    
+
     // showing all categories by default
     categoryData(data?.data[0]?.category_id)
 }
@@ -15,6 +15,9 @@ let setCategories = (data) => {
 
     let categoryParent = document.getElementById('categoryParent');
     categoryParent.textContent = '';
+
+    // handling error show
+    let showError = document.getElementById('showError');
 
     categories.forEach(item => {
         // console.log(item.category_id)
@@ -40,38 +43,57 @@ let categoryData = async (id) => {
     let cardParent = document.getElementById('cardParent');
     cardParent.textContent = '';
 
+    showError.innerText = ''
 
-    allData.forEach(item => {
-        // console.log(item);
-        let div = document.createElement('div');
-        div.classList = 'card bg-base-100';
 
-        div.innerHTML = `
-        
-                    <div class="relative">
-                        <figure><img class="rounded-lg" src="https://i.ibb.co/L1b6xSq/shape.jpg" alt="Shoes" /></figure>
-                        <p class="text-xs w-fit text-white p-1 rounded-md bg-[#171717] absolute right-2 bottom-2">3hrs
-                            56 min ago</p>
-                    </div>
+    if (allData.length > 0) {
+        allData.forEach(item => {
+            // console.log(item);
+            let div = document.createElement('div');
+            div.classList = 'card bg-base-100';
 
-                    <div class="flex items-start mt-5 gap-x-3">
-                        <img class="w-1/6 rounded-full" src="https://i.ibb.co/D9wWRM6/olivia.jpg" alt="">
-                        <p class="font-bold">Lorem, ipsum dolor sit amet consectetur quo!</p>
-                    </div>
+            console.log(item)
 
-                    <div class="ml-[3.8rem] text-sm font-light space-y-1 mt-3">
-                        <div class="flex gap-x-3">
-                            <p>Awlad Hossain</p>
-                            <img src="./images/checkmark.svg" alt="">
+            div.innerHTML = `
+            
+                        <div class="relative">
+                            <figure><img class="rounded-lg" src="https://i.ibb.co/L1b6xSq/shape.jpg" alt="Shoes" /></figure>
+                            <p class="text-xs w-fit text-white p-1 rounded-md bg-[#171717] absolute right-2 bottom-2">3hrs
+                                56 min ago</p>
                         </div>
-                        <p>91k Views</p>
-                    </div>
+    
+                        <div class="flex items-start mt-5 gap-x-3">
+                            <img class="w-1/6 rounded-full" src="https://i.ibb.co/D9wWRM6/olivia.jpg" alt="">
+                            <p class="font-bold">Lorem, ipsum dolor sit amet consectetur quo!</p>
+                        </div>
+    
+                        <div class="ml-[3.8rem] text-sm font-light space-y-1 mt-3">
+                            <div class="flex gap-x-3">
+                                <p>Awlad Hossain</p>
+                                <img src="./images/checkmark.svg" alt="">
+                            </div>
+                            <p>91k Views</p>
+                        </div>
+    
+            `
 
-        `
+            cardParent.appendChild(div);
 
-        cardParent.appendChild(div);
+        });
+    } else {
 
-    });
+        let div = document.createElement('div');
+        div.classList = 'md:h-[75vh] mt-10 md:mt-0 flex flex-col items-center justify-start md:justify-center gap-y-3 md:gap-y-7';
+        div.innerHTML = `
+            <img class="w-1/5 md:w-[7%]" src="./images/Icon.png" alt="">
+            <div class="text-center">
+                <p class="font-bold md:text-xl text-[#171717]">Oops!! Sorry, There is no</p>
+                <p class="font-bold md:text-xl text-[#171717]">content here</p>
+            </div>
+
+        `;
+        showError.appendChild(div)
+    }
 }
 
 
