@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" data-theme = 'light'>
 <head>
-    <!-- dont forget to give a favicon -->
+    <link rel="shortcut icon" href="./images/favicon.avif" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>don't forget to give a title</title>
@@ -9,9 +9,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/0f3e3c819f.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <h1>Helllo hello tesing 1 2 3 4 5 </h1>
-    
+<body class="max-w-7xl mx-auto">
+
+    <header>
+        <section>
+            <div class="w-[90%] mx-auto flex flex-col items-center justify-center md:flex-row md:justify-between space-y-4 md:space-y-0 mt-3">
+                <img src="./images/Logo.png" alt="">
+                <button class=" btn btn-sm capitalize bg-gray-300 md:-translate-x-16">Sort by view</button>
+                <button class=" btn btn-sm bg-[#FF1F3D] text-white capitalize">Blog</button>
+            </div>
+            <div class="border-b border-gray-300 w-[90%] mx-auto mt-3">
+
+            </div>
+        </section>
+
+        <section>
+            <div id="categoryParent" class="flex items-center justify-center gap-1 md:gap-5 mt-5">
+                <button class="btn btn-sm">all</button>
+                <button class="btn btn-sm">music</button>
+                <button class="btn btn-sm">comedi</button>
+                <button class="btn btn-sm">drawing</button>
+            </div>
+        </section>
+    </header>
+
+    <main>
+
+    </main>
+
+    <footer></footer>
 
 
     <script src="./js/engin.js"></script>
