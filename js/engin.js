@@ -22,13 +22,14 @@ let setCategories = (data) => {
     categories.forEach(item => {
         // console.log(item.category_id)
         let button = document.createElement('button');
-        button.classList = 'btn btn-sm capitalize font-light';
+        button.classList = 'btn btn-sm capitalize font-light focus:bg-red-500 focus:text-white';
         button.innerText = item?.category;
 
         categoryParent.appendChild(button)
 
         button.addEventListener('click', () => {
             categoryData(item?.category_id)
+            console.log(event.target)
         })
     });
 
@@ -58,8 +59,7 @@ let categoryData = async (id) => {
             
                         <div class="relative">
                             <figure><img class="rounded-lg h-full md:h-[30vh] w-full" src="${item?.thumbnail}" alt="Shoes" /></figure>
-                            <p class="text-xs w-fit text-white p-1 rounded-md bg-[#171717] absolute right-2 bottom-2">3hrs
-                                56 min ago</p>
+                            <p class="text-xs w-fit text-white p-1 rounded-md bg-[#171717] absolute right-2 bottom-2">3hrs 56 min ago</p>
                         </div>
     
                         <div class="flex items-center mt-4 gap-x-3">
