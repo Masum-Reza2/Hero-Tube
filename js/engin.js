@@ -29,7 +29,6 @@ let setCategories = (data) => {
 
         button.addEventListener('click', () => {
             categoryData(item?.category_id)
-            console.log(event.target)
         })
     });
 
@@ -53,13 +52,13 @@ let categoryData = async (id) => {
             let div = document.createElement('div');
             div.classList = 'card bg-base-100 border-black';
 
-            console.log(item)
+            // console.log(item)
 
             div.innerHTML = `
             
                         <div class="relative">
                             <figure><img class="rounded-lg h-full md:h-[30vh] w-full" src="${item?.thumbnail}" alt="Shoes" /></figure>
-                            <p class="text-xs w-fit text-white p-1 rounded-md bg-[#171717] absolute right-2 bottom-2">3hrs 56 min ago</p>
+                            <p class="text-xs w-fit text-white p-1 rounded-md bg-[#171717] absolute right-2 bottom-2">${item?.others?.posted_date || '0'}</p>
                         </div>
     
                         <div class="flex items-center mt-4 gap-x-3">
@@ -70,7 +69,7 @@ let categoryData = async (id) => {
                         <div class="ml-[3.2rem] text-sm font-light space-y-1 mt-2">
                             <div class="flex gap-x-3">
                                 <p>${item?.authors[0]?.profile_name}</p>
-                                <img src="./images/checkmark.svg" alt="">
+                                <img class = ${item?.authors[0]?.verified ? 'block' : 'hidden'} src="./images/checkmark.svg" alt="">
                             </div>
                             <p>${item?.others?.views} views</p>
                         </div>
@@ -83,7 +82,7 @@ let categoryData = async (id) => {
     } else {
 
         let div = document.createElement('div');
-        div.classList = 'md:h-[75vh] mt-10 md:mt-0 flex flex-col items-center justify-start md:justify-center gap-y-3 md:gap-y-7';
+        div.classList = 'md:h-[70vh] mt-10 md:mt-0 flex flex-col items-center justify-start md:justify-center gap-y-3 md:gap-y-7';
         div.innerHTML = `
             <img class="w-1/5 md:w-[7%]" src="./images/Icon.png" alt="">
             <div class="text-center">
