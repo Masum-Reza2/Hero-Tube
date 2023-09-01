@@ -57,17 +57,17 @@ let categoryData = async (id) => {
             div.innerHTML = `
             
                         <div class="relative">
-                            <figure><img class="rounded-lg h-[30vh]" src="${item?.thumbnail}" alt="Shoes" /></figure>
+                            <figure><img class="rounded-lg h-full md:h-[30vh] w-full" src="${item?.thumbnail}" alt="Shoes" /></figure>
                             <p class="text-xs w-fit text-white p-1 rounded-md bg-[#171717] absolute right-2 bottom-2">3hrs
                                 56 min ago</p>
                         </div>
     
-                        <div class="flex items-center mt-5 gap-x-3">
+                        <div class="flex items-center mt-4 gap-x-3">
                             <img class="h-10 w-10 rounded-full" src= "${item?.authors[0]?.profile_picture}" alt="">
                             <p class="font-bold">${item?.title}</p>
                         </div>
     
-                        <div class="ml-[3.2rem] text-sm font-light space-y-1 mt-3">
+                        <div class="ml-[3.2rem] text-sm font-light space-y-1 mt-2">
                             <div class="flex gap-x-3">
                                 <p>${item?.authors[0]?.profile_name}</p>
                                 <img src="./images/checkmark.svg" alt="">
