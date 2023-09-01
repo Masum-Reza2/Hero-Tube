@@ -22,19 +22,47 @@
 <body>
     <header>
         <div class="text-center mt-5">
-            <button onclick="window.location.href = 'index.html'" class="btn btn-success btn-sm md:btn-md text-white">Goto Home</button>
+            <button onclick="window.location.href = 'index.html'"
+                class="btn btn-success btn-sm md:btn-md text-white">Goto Home</button>
         </div>
     </header>
     <main>
         <section class="mt-5 space-y-2 w-[90%] mx-auto">
-            
+
             <div class="collapse collapse-arrow bg-base-200">
                 <input type="radio" name="my-accordion-2" checked="checked" />
                 <div class="collapse-title md:text-xl font-medium">
                     Discuss the scope of var, let, and const?
                 </div>
                 <div class="collapse-content">
-                    <p class="text-sm md:text-base">hello</p>
+                    <p class="text-sm md:text-base">
+                        <span>In JavaScript var, let and const are used to declere variables. But there are some major difference among them. let's discuss the metter,</span>
+
+                        <h1 class="underline font-semibold text-lg">var</h1>
+                        <p>1.before modern JS or ES-6 var was used to decler variables.</p>
+                        <p>2.var is function-scoped.</p>
+                        <p>3.If var declered outside a function then it become globally scopped, can be access the entire program.</p>
+                        <p>4.Never abide by the law of block scope like let or const do.</p>
+                        <p>5.var can be re-declered and re-asigned, He never minds.</p>
+                        <p>6.if we declere a variable using var it become hoisted.</p>
+
+
+                        <h1 class="font-semibold underline mt-5">let</h1>
+                        <p>1.After ES-6 we are introduced with let.Like var let is also used to declere variables.</p>
+                        <p>2.Variables declared with let are block-scoped. This means they are only accessible within the block in which they are defined</p>
+                        <p>3.We can't re-declere a variable using let but we can re-assign.</p>
+                        <p>4.Variables declered using let will be never hoisted.</p>
+                        <p>5.Accessing a let variable before its declaration will give an error.</p>
+
+                        <h1 class="font-semibold underline mt-5">const</h1>
+                        <p>1.Like var and let, const is used to declere variable.</p>
+                        <p>2.Like let, Variables declared with const are block-scoped. This means they are only accessible within the block in which they are defined</p>
+                        <p>3.We can't re-declere and re-assign a variable using const.</p>
+                        <p>4.Variables declered using const will be never hoisted.</p>
+                        <p>5.Accessing a const variable before its declaration will give an error.</p>
+                        <p>6.const is used to declare variables that should not be reassigned after their initial value is assigned</p>
+
+                    </p>
                 </div>
             </div>
             <div class="collapse collapse-arrow bg-base-200">
@@ -58,7 +86,10 @@
 
         </section>
     </main>
+
+
     <footer></footer>
+
 </body>
 
 </html>
