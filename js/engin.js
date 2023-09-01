@@ -45,8 +45,10 @@ let categoryData = async (id) => {
 
     showError.innerText = ''
 
+    // console.log(allData)
 
     if (allData.length > 0) {
+
         allData.forEach(item => {
             // console.log(item);
             let div = document.createElement('div');
@@ -59,7 +61,7 @@ let categoryData = async (id) => {
                         <div class="relative">
                             <figure><img class="rounded-lg h-full md:h-[30vh] w-full" src="${item?.thumbnail}" alt="Shoes" /></figure>
                             <p class="text-xs w-fit text-white p-1 rounded-md bg-[#171717] absolute right-2 bottom-2 ${item?.others?.posted_date ? 'block' : 'hidden'}">
-                            ${Math.floor((item?.others?.posted_date/60)/60) || '0'}hrs ${Math.floor((item?.others?.posted_date/60)%60) || '0'} min ago
+                            ${Math.floor((item?.others?.posted_date / 60) / 60) || '0'}hrs ${Math.floor((item?.others?.posted_date / 60) % 60) || '0'} min ago
                             </p>
                         </div>
     
@@ -73,7 +75,7 @@ let categoryData = async (id) => {
                                 <p>${item?.authors[0]?.profile_name}</p>
                                 <img class = ${item?.authors[0]?.verified ? 'block' : 'hidden'} src="./images/checkmark.svg" alt="">
                             </div>
-                            <p>${item?.others?.views} views</p>
+                            <p class = 'views'>${item?.others?.views} views</p>
                         </div>
     
             `
@@ -81,7 +83,10 @@ let categoryData = async (id) => {
             cardParent.appendChild(div);
 
         });
-    } else {
+
+    }
+
+    else {
 
         let div = document.createElement('div');
         div.classList = 'md:h-[70vh] mt-10 md:mt-0 flex flex-col items-center justify-start md:justify-center gap-y-3 md:gap-y-7';
@@ -100,3 +105,29 @@ let categoryData = async (id) => {
 
 // parent or control room switch
 loadData()
+
+
+// sort button handler
+let sortBtn = document.getElementById('sortBtn');
+sortBtn.addEventListener('click', () => {
+    sortVideosByViews();
+});
+
+let sortVideosByViews = () => {
+    let cardParent = document.getElementById('cardParent');
+    let cards = Array.from(cardParent.children);
+
+    cards.sort((a, b) => {
+        let viewsA = parseFloat(a.querySelector('.views').textContent);
+        let viewsB = parseFloat(b.querySelector('.views').textContent);
+        console.log(viewsA, a.querySelector('.views').textContent)
+        console.log(viewsB)
+
+        return viewsB - viewsA;
+    });
+
+    cardParent.textContent = '';
+    cards.forEach(card => {
+        cardParent.appendChild(card);
+    });
+};
