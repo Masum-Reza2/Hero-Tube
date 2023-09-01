@@ -58,7 +58,9 @@ let categoryData = async (id) => {
             
                         <div class="relative">
                             <figure><img class="rounded-lg h-full md:h-[30vh] w-full" src="${item?.thumbnail}" alt="Shoes" /></figure>
-                            <p class="text-xs w-fit text-white p-1 rounded-md bg-[#171717] absolute right-2 bottom-2">${item?.others?.posted_date || '0'}</p>
+                            <p class="text-xs w-fit text-white p-1 rounded-md bg-[#171717] absolute right-2 bottom-2 ${item?.others?.posted_date ? 'block' : 'hidden'}">
+                            ${Math.floor((item?.others?.posted_date/60)/60) || '0'}hrs ${Math.floor((item?.others?.posted_date/60)%60) || '0'} min ago
+                            </p>
                         </div>
     
                         <div class="flex items-center mt-4 gap-x-3">
