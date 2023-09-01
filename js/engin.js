@@ -50,29 +50,29 @@ let categoryData = async (id) => {
         allData.forEach(item => {
             // console.log(item);
             let div = document.createElement('div');
-            div.classList = 'card bg-base-100';
+            div.classList = 'card bg-base-100 border-black';
 
             console.log(item)
 
             div.innerHTML = `
             
                         <div class="relative">
-                            <figure><img class="rounded-lg" src="${item?.thumbnail}" alt="Shoes" /></figure>
+                            <figure><img class="rounded-lg h-[30vh]" src="${item?.thumbnail}" alt="Shoes" /></figure>
                             <p class="text-xs w-fit text-white p-1 rounded-md bg-[#171717] absolute right-2 bottom-2">3hrs
                                 56 min ago</p>
                         </div>
     
-                        <div class="flex items-start mt-5 gap-x-3">
-                            <img class="w-1/6 rounded-full" src= "${item?.authors[0]?.profile_picture}" alt="">
+                        <div class="flex items-center mt-5 gap-x-3">
+                            <img class="h-10 w-10 rounded-full" src= "${item?.authors[0]?.profile_picture}" alt="">
                             <p class="font-bold">${item?.title}</p>
                         </div>
     
-                        <div class="ml-[3.8rem] text-sm font-light space-y-1 mt-3">
+                        <div class="ml-[3.2rem] text-sm font-light space-y-1 mt-3">
                             <div class="flex gap-x-3">
-                                <p>Awlad Hossain</p>
+                                <p>${item?.authors[0]?.profile_name}</p>
                                 <img src="./images/checkmark.svg" alt="">
                             </div>
-                            <p>91k Views</p>
+                            <p>${item?.others?.views} views</p>
                         </div>
     
             `
