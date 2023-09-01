@@ -130,3 +130,9 @@ let sortVideosByViews = () => {
         cardParent.appendChild(card);
     });
 };
+
+
+// blog question answer handler
+document.getElementById('btnBlog').addEventListener('click', ()=>{
+    window.location.href = 'blog.html'
+})
