@@ -1,5 +1,8 @@
 // setting all categories or control room
 let loadData = async () => {
+    // loading 
+    handleLoading(true)
+
     let res = await fetch('https://openapi.programming-hero.com/api/videos/categories');
     let data = await res.json();
 
@@ -29,9 +32,14 @@ let setCategories = (data) => {
         categoryParent.appendChild(button)
 
         button.addEventListener('click', () => {
+
+            // loading starts here
+            handleLoading(true)
+
             categoryData(item?.category_id)
         })
     });
+    handleLoading(false)
 
 }
 
@@ -82,9 +90,9 @@ let categoryData = async (id) => {
             `
 
             cardParent.appendChild(div);
-
         });
 
+        handleLoading(false)
     }
 
     else {
@@ -102,6 +110,7 @@ let categoryData = async (id) => {
         `;
         showError.appendChild(div)
     }
+    handleLoading(false)
 }
 
 
@@ -133,6 +142,19 @@ let sortVideosByViews = () => {
 
 
 // blog question answer handler
-document.getElementById('btnBlog').addEventListener('click', ()=>{
+document.getElementById('btnBlog').addEventListener('click', () => {
     window.location.href = 'blog.html'
 })
+
+
+// loading handler
+function handleLoading(isLoading) {
+    let loadingHandler = document.getElementById('loadingHandler');
+
+    if (isLoading) {
+        loadingHandler.classList.remove('hidden')
+    }
+    else {
+        loadingHandler.classList.add('hidden')
+    }
+}
