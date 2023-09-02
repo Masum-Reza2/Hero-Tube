@@ -61,7 +61,7 @@ let categoryData = async (id) => {
         allData.forEach(item => {
             // console.log(item);
             let div = document.createElement('div');
-            div.classList = 'card bg-base-100 border-black';
+            div.classList = 'card bg-base-100 border-black transition-all duration-500 cursor-pointer hover:scale-105 active:scale-110';
 
             // console.log(item)
 
